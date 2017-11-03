@@ -1,0 +1,6 @@
+{
+    "editor.cursorStyle": "line",
+    "prettier.singleQuote": false,
+    "files.autoSave": "onWindowChange",
+    "editor.rulers":[80,65]
+}
