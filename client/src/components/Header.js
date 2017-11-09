@@ -47,7 +47,7 @@ class Header extends Component {
                 <span className="icon-bar" />
               </button>
               <Link
-                to={this.props.auth ? "/surveys" : "/"}
+                to={this.props.auth ? "/survey" : "/"}
                 className="brand-logo navbar-left"
               >
                 S-APP
