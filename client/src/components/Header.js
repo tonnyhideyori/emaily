@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import Payments from "./Payments";
 class Header extends Component {
   renderContent() {
@@ -17,10 +18,13 @@ class Header extends Component {
           <li key="1">
             <Payments />
           </li>,
-          <li key="3" style={{margin:"0 10px"}} >
-          Credits:{this.props.auth.credits}</li>,
+          <li key="3" style={{ margin: "0 10px", padding: "0px" }}>
+            Credits:{this.props.auth.credits}
+          </li>,
           <li key="2">
-            <a href="/api/logout">Logout</a>
+            <button className="waves-effect waves-light btn red">
+              <a href="/api/logout">Logout</a>
+            </button>
           </li>
         ];
     }
@@ -28,14 +32,35 @@ class Header extends Component {
 
   render() {
     return (
-      <nav>
-        <div className="nav-wrapper">
-          <a className="left brand-logo">Emaily</a>
-          <ul id="nav-mobile" className="right">
-            {this.renderContent()}
-          </ul>
-        </div>
-      </nav>
+      <div style={{ marginBottom: "0px" }}>
+        <nav className="navbar navbar-inverse ">
+          <div className="container-fluid">
+            <div className="navbar-header">
+              <button
+                type="button"
+                className="navbar-toggle"
+                data-toggle="collapse"
+                data-target="#myNavbar"
+              >
+                <span className="icon-bar" />
+                <span className="icon-bar" />
+                <span className="icon-bar" />
+              </button>
+              <Link
+                to={this.props.auth ? "/surveys" : "/"}
+                className="brand-logo navbar-left"
+              >
+                S-APP
+              </Link>
+            </div>
+            <div className="collapse navbar-collapse" id="myNavbar">
+              <ul className="nav navbar-nav navbar-right">
+                {this.renderContent()}
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
     );
   }
 }
